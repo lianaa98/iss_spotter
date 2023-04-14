@@ -1,6 +1,7 @@
 const fetchMyIP = require('./iss').fetchMyIP;
 const fetchCoordsByIP = require('./iss').fetchCoordsByIP;
 const fetchISSFlyOverTimes = require('./iss').fetchISSFlyOverTimes;
+const nextISSTimesForMyLocation = require('./iss').nextISSTimesForMyLocation;
 
 let myIP;
 let location;
@@ -26,6 +27,7 @@ fetchMyIP((error, ip) => {
         return;
       }
       console.log(body);
+      nextISSTimesForMyLocation(body);
     })
     
   });
